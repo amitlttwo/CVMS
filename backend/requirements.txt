@@ -1,0 +1,13 @@
+Flask==2.3.3
+Flask-CORS==4.0.0
+requests==2.31.0
+shodan==1.29.1
+dnspython==2.4.2
+tldextract==3.4.4
+httpx==0.25.0
+aiohttp==3.8.5
+aiodns==3.1.1
+async-timeout==4.0.3
+tqdm==4.66.1
+beautifulsoup4==4.12.2
+urllib3==2.0.7

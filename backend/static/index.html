@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubDomain Enumeration Search engine</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-bolt"></i> SubDomain Enumeration Search engine</h1>
+            <p>High-performance subdomain discovery</p>
+        </header>
+
+        <div class="search-section">
+            <div class="input-group">
+                <input type="text" id="domainInput" placeholder="Enter domain (e.g., example.com)">
+                <button id="searchBtn"><i class="fas fa-search"></i> Enumerate Subdomains</button>
+            </div>
+            <div class="tools-info">
+                <span>Powered by: 
+                    <i class="fab fa-searchengin" title="viehgroup"></i> VIEH Security Team
+                </span>
+            </div>
+        </div>
+
+        <div class="progress-section" id="progressSection">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Waiting to start...</div>
+            <div class="scan-stage" id="scanStage"></div>
+        </div>
+
+        <div class="stats-section" id="statsSection">
+            <div class="stat">
+                <div class="stat-value" id="statFound">0</div>
+                <div class="stat-label">Subdomains Found</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="statActive">0</div>
+                <div class="stat-label">Active Hosts</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="statCloudflare">0</div>
+                <div class="stat-label">Cloudflare Protected</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="statTime">0s</div>
+                <div class="stat-label">Time Elapsed</div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <div class="results-header">
+                <h2>Discovered Subdomains <span class="badge" id="resultsCount">0</span></h2>
+                <div class="results-info">
+                    <div class="export-buttons">
+                        <button id="exportTxtBtn"><i class="fas fa-file-alt"></i> Export TXT</button>
+                        <button id="exportJsonBtn"><i class="fas fa-file-code"></i> Export JSON</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p>Initializing ultra-fast scan engine...</p>
+                <p class="scan-tips">
+                    <i class="fas fa-lightbulb"></i> Scanning with async DNS resolution and parallel HTTP checks
+                </p>
+            </div>
+            
+            <div class="filters" id="filters">
+                <input type="text" id="filterInput" placeholder="Filter subdomains...">
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="active">Active Only</option>
+                    <option value="inactive">Inactive Only</option>
+                </select>
+                <select id="cloudflareFilter">
+                    <option value="all">All Cloudflare</option>
+                    <option value="enabled">Cloudflare Enabled</option>
+                    <option value="disabled">Cloudflare Disabled</option>
+                </select>
+                <select id="protocolFilter">
+                    <option value="all">All Protocols</option>
+                    <option value="http">HTTP Only</option>
+                    <option value="https">HTTPS Only</option>
+                </select>
+            </div>
+            
+            <div class="table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Subdomain</th>
+                            <th>IP Address</th>
+                            <th>HTTP</th>
+                            <th>HTTPS</th>
+                            <th>Server</th>
+                            <th>Cloudflare</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsContainer">
+                        <!-- Results will be displayed here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <p>Copyright © 2025 VIEH Group | Ultimate SubDomain Enumeration Search Engine</p>
+        </footer>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
